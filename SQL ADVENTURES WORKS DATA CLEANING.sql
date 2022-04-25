@@ -44,21 +44,24 @@ SELECT [BusinessEntityID],[JobTitle],[VacationHours]
 FROM [HumanResources].[Employee]
 ORDER BY VacationHours ASC
 
+--Sorting based on different categories
 SELECT [OrganizationLevel],[BusinessEntityID], [JobTitle], [VacationHours]
 FROM [HumanResources].[Employee]
 WHERE Gender ='M'  AND MaritalStatus = 'S' AND  VacationHours <=50  
 ORDER BY [OrganizationLevel] ASC
 
+--Sorting based on different conditions
 SELECT [BusinessEntityID],[JobTitle], [Gender],[HireDate],[VacationHours]
 FROM [HumanResources].[Employee]
 WHERE   Gender IN ('M' ,'F') AND VacationHours< 20 AND MaritalStatus ='S' 
 ORDER BY [VacationHours] DESC
 
+--Sorting colors
 SELECT [ProductID],[Color],[Name]
 FROM   [Production].[Product]
 WHERE  COLOR IN ('BLACK','BLUE', 'RED', 'WHITE')
  
-
+--Counting number of colors
 SELECT COUNT  (DISTINCT [Color]) AS NUMBERS_OF_COLORS
 FROM [Production].[Product]
 
@@ -78,6 +81,7 @@ SELECT COUNT ([JobTitle]) AS TOTAL_number_of_employee
 FROM [HumanResources].[Employee]
 WHERE [MaritalStatus] ='S'
 
+--calculating square root and average
 SELECT SUM ([SickLeaveHours]) AS SICKLEAVE_HOURS, SUM ([VacationHours]) AS TOTAL_VACATION_HOURS, AVG ([VacationHours]) AS AVERAGE_VACATION_HOURS,
 SQRT (AVG ([SickLeaveHours])) AS SQRTOFAVG_SICK_HOURS
 FROM[HumanResources].[Employee]
